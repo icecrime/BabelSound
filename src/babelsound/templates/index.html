@@ -1,0 +1,134 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="js/controller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -80px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 80px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <a href="https://github.com/icecrime/BabelSound">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
+    <div id="wrap">
+      <div class="container" ng-controller="BabelSoundCtrl">
+        <div class="page-header">
+          <h1>Babel Sound</h1>
+        </div>
+
+        <p class="lead">Translate track links between different music providers.</p>
+        <p>Currently supports <a href="http://www.spotify.com">Spotify</a>, <a href="http://www.rdio.com">Rdio</a> and
+           <a href="http://www.deezer.com">Deezer</a>.</p>
+
+        <br>
+
+        <div class="input-append">
+          <input class="span5" type="text" ng-model="trackURL" placeholder="Paste a track URL">
+          <button class="btn" type="button" ng-click="requestTranslation()">Go!</button>
+        </div>
+
+        <hr ng-show="results">
+
+        <div ng-show="error_msg">
+          <div class="alert alert-error span5">
+            <b>Error translating URL!</b> {{ error_msg }}
+          </div>
+        </div>
+
+        <div ng-show="track">
+          <div class="alert alert-info span7">
+            Resolved track <b>{{ track.track }}</b> by <b>{{ track.artist }}</b>!
+          </div>
+        </div>
+
+        <div ng-show="results">
+          <table class="table table-condensed">
+            <tbody>
+              <tr ng-repeat="result in results">
+                <td style="width: 30%; text-align: center; vertical-align: middle; padding-left: 30px;">
+                  <img ng-src="img/logo_{{ result.name|lowercase }}.png">
+                </td>
+                <td>
+                  <dl class="dl-horizontal" ng-show="result.info">
+                    <dt>Link</dt><dd><a href="{{ result.info.link }}">{{ result.info.link }}</a></dd>
+                    <dt>Artist</dt><dd>{{ result.info.artist }}</dd>
+                    <dt>Title</dt><dd>{{ result.info.title }}</dd>
+                    <dt>Album</dt><dd>{{ result.info.album }}</dd>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div id="push"></div>
+    </div>
+  
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">
+          Developed with <a href="http://www.python.org">Python</a>, <a href="http://flask.pocoo.org/">Flask</a>,
+          <a href="http://docs.python-requests.org/">Requests</a>, <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>
+          and <a href="http://angularjs.org/">AngularJS</a>.<br>
+          All trademarks and logo mentioned herein belong to their respective owners, blah blah blah.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

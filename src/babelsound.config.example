@@ -1,0 +1,5 @@
+RDIO_CONSUMER_KEY: consumer_key
+RDIO_CONSUMER_SECRET: consumer_secret
+
+RDIO_RESOURCE_OWNER_KEY: resource_owner_key
+RDIO_RESOURCE_OWNER_SECRET: resource_owner_secret
