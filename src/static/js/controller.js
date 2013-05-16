@@ -2,6 +2,10 @@
 
 function BabelSoundCtrl($scope, $http) {
 
+    $scope.isLoading = function() {
+       return $http.pendingRequests.length !== 0;
+    };
+
     $scope.requestTranslation = function() {
 
         $scope.results = null;

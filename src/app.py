@@ -5,7 +5,7 @@ app = Flask(__name__, static_url_path='')
 
 # Create a list of eligible services. When an URI is submitted, they will be
 # tried in a sequence to find an accepting service.
-from services import deezer, rdio, spotify
+from babelsound.services import deezer, rdio, spotify
 services = set([deezer, rdio, spotify])
 
 
