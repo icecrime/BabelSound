@@ -1,5 +1,5 @@
 *.pyc
 .dotcloud
-src/babelsound.config
+src/babelsound/config/babelsound.config
 venv
 
