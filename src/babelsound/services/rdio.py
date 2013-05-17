@@ -7,7 +7,7 @@ import requests_oauthlib
 import urlparse
 
 from babelsound import config
-from babelsound.track import Track
+from babelsound.services import Track
 
 
 service_name = 'Rdio'

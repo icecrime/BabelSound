@@ -6,7 +6,7 @@ import operator
 import requests
 import urlparse
 
-from babelsound.track import Track
+from babelsound.services import Track
 
 
 service_name = 'Spotify'

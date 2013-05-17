@@ -43,7 +43,3 @@ def translate():
 
     # Result is sent as JSON.
     return jsonify({'services': result})
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
